@@ -20,10 +20,11 @@ const allowedGenres = ["Animation", "Family", "Action", "Comedy", "Drama", "Sci-
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment
  */
 export function setMovieRating(movie, rating) {
-
-  // implement code here
-  // Use dot notation to update the rating.
-
+  if (typeof movie !== 'object' || movie === null || typeof rating !== 'number') {
+    return movie;
+  }
+  movie.rating = rating;
+  return movie;
 }
 
 /**
@@ -34,10 +35,14 @@ export function setMovieRating(movie, rating) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment
  */
 export function addMovieGenre(movie, genre) {
+  if (typeof movie !== 'object' || movie === null || typeof genre !== 'string') {
+    return movie;
+  }
+  if (allowedGenres.includes(genre)) {
+    movie.genre = genre;
+  }
 
-  // implement code here
-  // Validate the new genre against the allowedGenres array.
-
+  return movie;
 }
 
 /**
@@ -47,10 +52,11 @@ export function addMovieGenre(movie, genre) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
  */
 export function removeDirectorProperty(movie) {
-
-  // implement code here
-  // Use the delete operator to remove the property.
-
+  if (typeof movie !== 'object' || movie === null) {
+    return movie;
+  }
+  delete movie.director;
+  return movie;
 }
 
 /**
@@ -61,7 +67,11 @@ export function removeDirectorProperty(movie) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
  */
 export function addCastMember(movie, newMember) {
-  // implement code here
+  if (typeof movie !== 'object' || movie === null || !Array.isArray(movie.cast) || typeof newMember !== 'string') {
+    return movie;
+  }
+  movie.cast.push(newMember);
+  return movie;
 }
 
 /**
@@ -70,8 +80,7 @@ export function addCastMember(movie, newMember) {
  * @returns {Array} - An array of allowed genres.
  */
 export function getAllowedGenres() {
-  // implement code here
-  // Return a copy so external code can't modify the private array.
+  return [...allowedGenres];
 }
 
 // --------------------
