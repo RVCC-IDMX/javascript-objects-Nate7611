@@ -14,10 +14,10 @@ import { v4 as uuidv4 } from 'uuid';
  * Creates a movie object with the provided properties or minimal default values if any are missing.
  *
  * @param {object} [options={}] - An object containing movie properties.
- * @param {string} [options.title=""] - The title of the movie.
- * @param {string} [options.director=""] - The director of the movie.
+ * @param {string} [options.title=''] - The title of the movie.
+ * @param {string} [options.director=''] - The director of the movie.
  * @param {number} [options.year=0] - The release year of the movie.
- * @param {string} [options.genre=""] - The genre of the movie.
+ * @param {string} [options.genre=''] - The genre of the movie.
  * @param {number} [options.rating=0] - The rating of the movie.
  * @param {string[]} [options.cast=[]] - An array of cast member names.
  * @returns {object} - A new movie object with a unique id.
@@ -26,10 +26,10 @@ import { v4 as uuidv4 } from 'uuid';
 export function createMovieObject(options = {}) {
   // Use destructuring with minimal default values.
   const {
-    title = "",
-    director = "",
+    title = '',
+    director = '',
     year = 0,
-    genre = "",
+    genre = '',
     rating = 0,
     cast = []
   } = options;
@@ -62,12 +62,12 @@ export function createMovieObject(options = {}) {
  */
 export function prettyPrint(movie) {
   return `----------------------------------------
-Title   : ${movie.title || "N/A"}
-Year    : ${movie.year || "N/A"}
-Director: ${movie.director || "N/A"}
-Genre   : ${movie.genre || "N/A"}
-Rating  : ${movie.rating || "N/A"}
-Cast    : ${Array.isArray(movie.cast) && movie.cast.length ? movie.cast.join(', ') : "N/A"}
+Title   : ${movie.title || 'N/A'}
+Year    : ${movie.year || 'N/A'}
+Director: ${movie.director || 'N/A'}
+Genre   : ${movie.genre || 'N/A'}
+Rating  : ${movie.rating || 'N/A'}
+Cast    : ${Array.isArray(movie.cast) && movie.cast.length ? movie.cast.join(', ') : 'N/A'}
 ----------------------------------------`;
 }
 
@@ -81,18 +81,18 @@ const SHOW_EXAMPLES = false;
 if (SHOW_EXAMPLES) {
   // Creating a movie using default values (empty strings, 0, empty array).
   const defaultMovie = createMovieObject();
-  console.log("Default Movie:");
+  console.log('Default Movie:');
   console.log(prettyPrint(defaultMovie));
 
   // Creating a movie with custom properties.
   const customMovie = createMovieObject({
-    title: "Inception",
-    director: "Christopher Nolan",
+    title: 'Inception',
+    director: 'Christopher Nolan',
     year: 2010,
-    genre: "Sci-Fi",
+    genre: 'Sci-Fi',
     rating: 8.8,
-    cast: ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"]
+    cast: ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page']
   });
-  console.log("Custom Movie:");
+  console.log('Custom Movie:');
   console.log(prettyPrint(customMovie));
 }

@@ -10,7 +10,7 @@
 // Toggle examples on or off.
 const SHOW_EXAMPLES = false;
 
-const allowedGenres = ["Animation", "Family", "Action", "Comedy", "Drama", "Sci-Fi"];
+const allowedGenres = ['Animation', 'Family', 'Action', 'Comedy', 'Drama', 'Sci-Fi'];
 
 /**
  * Updates the movie rating if the provided input is valid.
@@ -89,34 +89,34 @@ export function getAllowedGenres() {
 if (SHOW_EXAMPLES) {
   let movie = {
     id: 1,
-    title: "Toy Story",
-    director: "John Lasseter",
+    title: 'Toy Story',
+    director: 'John Lasseter',
     year: 1995,
-    genre: "Animation",
+    genre: 'Animation',
     rating: 8.3,
-    cast: ["Tom Hanks", "Tim Allen", "Don Rickles"]
+    cast: ['Tom Hanks', 'Tim Allen', 'Don Rickles']
   };
 
-  console.log("Original Movie Object:", movie);
+  console.log('Original Movie Object:', movie);
   // Explanation: Displays the initial state of the movie object.
 
   movie = setMovieRating(movie, 9.1);
-  console.log("After Updating Rating:", movie);
+  console.log('After Updating Rating:', movie);
   // Explanation: Shows the updated movie object with the new rating.
 
-  movie = addMovieGenre(movie, "Family");
-  console.log("After Adding/Updating Genre:", movie);
+  movie = addMovieGenre(movie, 'Family');
+  console.log('After Adding/Updating Genre:', movie);
   // Explanation: Shows the movie object after updating the genre.
 
   movie = removeDirectorProperty(movie);
-  console.log("After Removing Director Property:", movie);
+  console.log('After Removing Director Property:', movie);
   // Explanation: Shows the movie object after removing the director property.
 
-  movie = addCastMember(movie, "Joan Cusack");
-  console.log("After Adding a New Cast Member:", movie);
+  movie = addCastMember(movie, 'Joan Cusack');
+  console.log('After Adding a New Cast Member:', movie);
   // Explanation: Shows the movie object after adding a new cast member to the cast array.
 
-  console.log("Allowed Genres:", getAllowedGenres());
+  console.log('Allowed Genres:', getAllowedGenres());
   // Explanation: Displays the allowed genres list.
 
   // Example of handling unexpected types:
